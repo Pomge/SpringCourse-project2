@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>project1 Maven Webapp</name>
+	<name>project2 Maven Webapp</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -117,7 +117,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>project1</finalName>
+		<finalName>project2</finalName>
 		<pluginManagement>
 			<!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
 			<plugins>
