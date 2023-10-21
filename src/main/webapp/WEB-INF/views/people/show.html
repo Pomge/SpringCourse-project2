@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Person</title>
+</head>
+
+<body>
+	<p th:text="${person.getFio() + ', ' + person.getYear()}">VALUE</p>
+	<br />
+
+	<div th:if="${!#lists.isEmpty(books)}">
+		<a>Books taken:</a>
+		<div th:each="book : ${books}">
+			<a style="color: red" th:if="${book.isOverdue()}" th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</a>
+			<a th:if="${!book.isOverdue()}" th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</a>
+		</div>
+	</div>
+	<div th:if="${#lists.isEmpty(books)}">
+   		<a>No books taken</a>
+	</div>
+	
+	<br />
+	<hr />
+	<a th:href="@{/people/{id}(id=${person.getId() - 1})}">Back</a>
+	<a th:href="@{/people/{id}(id=${person.getId() + 1})}">Next</a>
+
+	<br />
+	<hr />
+	
+	<form th:method="GET"
+		th:action="@{/people/{id}/edit(id=${person.getId()})}">
+		<input type="submit" value="Edit" />
+	</form>
+	
+	<form th:method="DELETE"
+		th:action="@{/people/{id}(id=${person.getId()})}">
+		<input type="submit" value="Delete" />
+	</form>
+	
+	<hr />
+	<a href="/people">Back to people list</a>
+</body>
+</html>
