@@ -19,6 +19,7 @@
 			<a th:href="@{/books/{id}(id=${book.getId()})}"
 				th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</a>
 			<div th:if="${book.getOwner()}">
+				<a>Book taken by: </a>
 				<a th:href="@{/people/{id}(id=${book.getOwner().getId()})}"
 					th:text="${book.getOwner().getFio() + ', ' + book.getOwner().getYear()}">VALUE</a>
 			</div>
@@ -33,6 +34,6 @@
 	</div>
 	
 	<hr />
-	<a href="/books">Go to books</a>
+	<a th:href="@{/people}">Back to books list</a>
 </body>
 </html>
